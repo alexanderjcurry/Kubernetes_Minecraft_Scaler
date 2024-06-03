@@ -37,6 +37,7 @@ You will be prompted for the number of servers, starting server number, and star
 **Verify the Deployment:**
 
 kubectl get pods -n minecraft
+
 kubectl get services -n minecraft
 
 **To Delete All Minecraft Resources:**
