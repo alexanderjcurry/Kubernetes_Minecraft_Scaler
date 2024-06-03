@@ -1,11 +1,11 @@
-**Minecraft Server Deployment on Kubernetes**
+**Minecraft Server Deployment on Kubernetes:**
 This repository contains scripts and configuration files to automate the deployment of multiple Minecraft servers on a Kubernetes cluster.
 
-**Enviorment**
+**Enviorment:**
 Kubernetes cluster running version v1.26.15
 Ubuntu 24.04 LTS
 
-**Files in This Repository**
+**Files in This Repository:**
 create-minecraft-servers.sh: Bash script to automate the creation of multiple Minecraft server deployments and services.
 
 refresh_script.sh: Bash script to delete all Minecraft server resources in the specified namespace.
@@ -18,7 +18,7 @@ deployment-template.yml: Template for Kubernetes Deployment resource to deploy M
 
 service-template.yml: Template for Kubernetes Service resource to expose Minecraft servers.
 
-**Setup Instructions**
+**Setup Instructions:**
 Clone the Repository
 
 git clone https://github.com/alexanderjcurry/Kubernetes_Minecraft_Scaler.git
@@ -30,12 +30,12 @@ Run the Create Script
 ./create-minecraft-servers.sh
 You will be prompted for the number of servers, starting server number, and starting NodePort.
 
-**Verify the Deployment**
+**Verify the Deployment:**
 
 kubectl get pods -n minecraft
 kubectl get services -n minecraft
 
-**To Delete All Minecraft Resources**
+**To Delete All Minecraft Resources:**
 
 ./refresh_script.sh
 
