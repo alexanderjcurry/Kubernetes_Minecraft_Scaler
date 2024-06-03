@@ -1,4 +1,5 @@
 #!/bin/bash
+#need to change it to also prompt what number the server order has started at.
 
 NAMESPACE=minecraft
 
