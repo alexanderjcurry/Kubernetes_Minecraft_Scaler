@@ -1,0 +1,12 @@
+# minecraft-config.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-config
+  namespace: minecraft
+data:
+  server.properties: |
+    view-distance=10
+    max-players=20
+    online-mode=true
+    level-name=world
