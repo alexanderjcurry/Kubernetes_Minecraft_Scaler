@@ -31,6 +31,7 @@ Ensure All Files Are in the Same Directory.
 Run the Create Script
 
 ./create-minecraft-servers.sh
+
 You will be prompted for the number of servers, starting server number, and starting NodePort.
 
 **Verify the Deployment:**
