@@ -1,0 +1,11 @@
+# minecraft-env-config.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-env-config
+  namespace: minecraft
+data:
+  VIEW_DISTANCE: "10"
+  MAX_PLAYERS: "20"
+  ONLINE_MODE: "true"
+  LEVEL_NAME: "world"
