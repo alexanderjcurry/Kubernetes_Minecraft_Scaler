@@ -21,7 +21,6 @@ deployment-template.yml: Template for Kubernetes Deployment resource to deploy M
 service-template.yml: Template for Kubernetes Service resource to expose Minecraft servers.
 
 **Setup Instructions:**
-Clone the Repository
 
 git clone https://github.com/alexanderjcurry/Kubernetes_Minecraft_Scaler.git
 cd Kubernetes_Minecraft_Scaler
