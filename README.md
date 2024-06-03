@@ -1,4 +1,5 @@
 **Minecraft Server Deployment on Kubernetes:**
+
 This repository contains scripts and configuration files to automate the deployment of multiple Minecraft servers on a Kubernetes cluster.
 
 **Enviorment:**
@@ -6,6 +7,7 @@ Kubernetes cluster running version v1.26.15
 Ubuntu 24.04 LTS
 
 **Files in This Repository:**
+
 create-minecraft-servers.sh: Bash script to automate the creation of multiple Minecraft server deployments and services.
 
 refresh_script.sh: Bash script to delete all Minecraft server resources in the specified namespace.
