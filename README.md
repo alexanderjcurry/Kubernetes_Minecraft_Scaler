@@ -3,7 +3,9 @@
 This repository contains scripts and configuration files to automate the deployment of multiple Minecraft servers on a Kubernetes cluster.
 
 **Enviorment:**
+
 Kubernetes cluster running version v1.26.15
+
 Ubuntu 24.04 LTS
 
 **Files in This Repository:**
