@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-server-{{SERVER_NUM}}
+  namespace: minecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-server-{{SERVER_NUM}}
+  template:
+    metadata:
+      labels:
+        app: minecraft-server-{{SERVER_NUM}}
+    spec:
+      initContainers:
+      - name: init-server-properties
+        image: busybox
+        command: ['sh', '-c', 'cp /config/server.properties /data/server.properties']
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+        - name: data
+          mountPath: /data
+      containers:
+      - name: minecraft
+        image: itzg/minecraft-server
+        env:
+        - name: EULA
+          value: "TRUE"
+        - name: MEMORY
+          value: "2G"
+        - name: VIEW_DISTANCE
+          valueFrom:
+            configMapKeyRef:
+              name: minecraft-env-config
+              key: VIEW_DISTANCE
+        - name: MAX_PLAYERS
+          valueFrom:
+            configMapKeyRef:
+              name: minecraft-env-config
+              key: MAX_PLAYERS
+        - name: ONLINE_MODE
+          valueFrom:
+            configMapKeyRef:
+              name: minecraft-env-config
+              key: ONLINE_MODE
+        - name: LEVEL_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: minecraft-env-config
+              key: LEVEL_NAME
+        ports:
+        - containerPort: 25565
+        resources:
+          requests:
+            cpu: "1"
+            memory: "2Gi"
+          limits:
+            cpu: "1"
+            memory: "2Gi"
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: config-volume
+        configMap:
+          name: minecraft-config
+          items:
+          - key: server.properties
+            path: server.properties
+      - name: data
+        emptyDir: {}
