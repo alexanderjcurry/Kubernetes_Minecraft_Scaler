@@ -1,19 +1,39 @@
-# Kubernetes_Minecraft_Scaler
+**Minecraft Server Deployment on Kubernetes**
+This repository contains scripts and configuration files to automate the deployment of multiple Minecraft servers on a Kubernetes cluster.
 
-This Bash script automates the deployment of multiple Minecraft servers in a Kubernetes environment. It prompts the user for the number of servers to create and the starting NodePort, then sets up the necessary Kubernetes resources using provided YAML templates.
+**Enviorment**
+Kubernetes cluster running version v1.26.15
+Ubuntu 24.04 LTS
 
-Example Scenario
-Imagine you are managing a Kubernetes cluster and want to deploy multiple instances of Minecraft servers quickly. This script will help you automate the process, ensuring each server instance has a unique identifier and NodePort for access. By running the script, you can specify how many servers you need and the starting port number, and the script will handle the creation and configuration of each server.
+**Files in This Repository**
+create-minecraft-servers.sh: Bash script to automate the creation of multiple Minecraft server deployments and services.
+refresh_script.sh: Bash script to delete all Minecraft server resources in the specified namespace.
+minecraft-env-config.yml: Kubernetes ConfigMap defining environment variables for Minecraft server configuration.
+minecraft-config.yml: Kubernetes ConfigMap containing the server.properties file for Minecraft server configuration.
+deployment-template.yml: Template for Kubernetes Deployment resource to deploy Minecraft servers.
+service-template.yml: Template for Kubernetes Service resource to expose Minecraft servers.
 
-Usage
-Create Deployment and Service Templates:
+**Setup Instructions**
+Clone the Repository
 
-deployment-template.yml: Template for Kubernetes deployments, including placeholders for server numbers.
-service-template.yml: Template for Kubernetes services, including placeholders for server numbers and NodePorts.
-Run the Script:
+git clone 
+cd 
+Ensure All Files Are in the Same Directory
 
-./deploy-minecraft-servers.sh
-Input Prompts:
+Run the Create Script
 
-Enter the number of Minecraft servers to create.
-Enter the starting NodePort (e.g., 30005 for the next available port after 30004).
+./create-minecraft-servers.sh
+You will be prompted for the number of servers, starting server number, and starting NodePort.
+
+**Verify the Deployment**
+
+kubectl get pods -n minecraft
+kubectl get services -n minecraft
+
+**To Delete All Minecraft Resources**
+
+./refresh_script.sh
+
+How It Works
+create-minecraft-servers.sh: Prompts for the number of servers, starting server number, and starting NodePort. Creates the minecraft namespace, applies ConfigMaps, and creates Minecraft server deployments and services.
+refresh_script.sh: Deletes all deployments, services, pods, and configmaps in the minecraft namespace and optionally deletes the namespace itself.
