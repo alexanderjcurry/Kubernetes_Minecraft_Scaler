@@ -43,6 +43,7 @@ kubectl get services -n minecraft
 
 ./refresh_script.sh
 
-How It Works
+**How It Works:**
+
 create-minecraft-servers.sh: Prompts for the number of servers, starting server number, and starting NodePort. Creates the minecraft namespace, applies ConfigMaps, and creates Minecraft server deployments and services.
 refresh_script.sh: Deletes all deployments, services, pods, and configmaps in the minecraft namespace and optionally deletes the namespace itself.
