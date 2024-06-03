@@ -7,17 +7,22 @@ Ubuntu 24.04 LTS
 
 **Files in This Repository**
 create-minecraft-servers.sh: Bash script to automate the creation of multiple Minecraft server deployments and services.
+
 refresh_script.sh: Bash script to delete all Minecraft server resources in the specified namespace.
+
 minecraft-env-config.yml: Kubernetes ConfigMap defining environment variables for Minecraft server configuration.
+
 minecraft-config.yml: Kubernetes ConfigMap containing the server.properties file for Minecraft server configuration.
+
 deployment-template.yml: Template for Kubernetes Deployment resource to deploy Minecraft servers.
+
 service-template.yml: Template for Kubernetes Service resource to expose Minecraft servers.
 
 **Setup Instructions**
 Clone the Repository
 
-git clone 
-cd 
+git clone https://github.com/alexanderjcurry/Kubernetes_Minecraft_Scaler.git
+cd Kubernetes_Minecraft_Scaler
 Ensure All Files Are in the Same Directory
 
 Run the Create Script
