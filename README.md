@@ -23,8 +23,10 @@ service-template.yml: Template for Kubernetes Service resource to expose Minecra
 **Setup Instructions:**
 
 git clone https://github.com/alexanderjcurry/Kubernetes_Minecraft_Scaler.git
+
 cd Kubernetes_Minecraft_Scaler
-Ensure All Files Are in the Same Directory
+
+Ensure All Files Are in the Same Directory.
 
 Run the Create Script
 
