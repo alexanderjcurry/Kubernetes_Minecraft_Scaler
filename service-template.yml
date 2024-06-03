@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-service-{{SERVER_NUM}}
+  namespace: minecraft
+spec:
+  selector:
+    app: minecraft-server-{{SERVER_NUM}}
+  ports:
+  - protocol: TCP
+    port: 25565
+    targetPort: 25565
+    nodePort: {{NODE_PORT}}  # Unique NodePort for each server
+  type: NodePort
