@@ -1,6 +1,16 @@
 #!/bin/bash
 
-#Use this if your pods are getting hung up and not deleting.
+#Use this if your pods are getting hung up and not deleting. 
+
+#run this on worker node if there is a free roam zombie:
+
+#This tells you if any containers are running.
+  #sudo ctr -n k8s.io containers list | grep 'docker.io/itzg/minecraft-server:latest'
+#You have to run this for each java instance running. If you see multiple java apps running in top, you'll have to run it many times. 
+  #pkill -f java
+#Delete the container.
+  #sudo ctr -n k8s.io containers delete <containerID>
+
 
 NAMESPACE=minecraft
 
